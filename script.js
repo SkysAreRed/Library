@@ -1,4 +1,4 @@
-const books = document.querySelector(".books");
+const books = document.querySelector("book");
 
 let myLibrary = [
     {
