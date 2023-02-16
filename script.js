@@ -1,6 +1,7 @@
 const books = document.querySelector("book");
 
-let myLibrary = [
+let library;
+let DEFAULT_DATA = [
     {
         title: "book1",
         author: "book1",
@@ -13,10 +14,15 @@ let myLibrary = [
     }
 ];
 
-function book() {
-    // the constructor 
+class book { // book constructor
+    constructor(title, author, read) {
+        this.title = title;
+        this.author = author;
+        this.read = read;
+    }
 }
 
 function addBookToLibrary() {
-    // do stuff here
+    const newBook = new Book(title.value, author.value, read.value);
+    library.push(newBook);
 }
