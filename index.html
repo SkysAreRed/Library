@@ -26,6 +26,20 @@
             </div>
             <div class="buttonsgrid">
                 <button class="headerbutton" id="newBtn">New</button> <!-- id newBtn for JS -->
+                <div id="popUp">
+                    <form id="form">
+                        <span class="close">X</span>
+                        <legend>New Book</legend>
+                        <div id="textInput">
+                            <p><input type="text" id="title" name="title" placeholder="Title"></p>
+                            <p><input type="text" id="author" name="author" placeholder="Author"></p>
+                        </div>
+                        <div id="checkbox">
+                            <p><label>Read:</label><input type="checkbox" id="read" name="read" value="yes"></p>
+                        </div>
+                        <button type="submit" form="form" id="addBtn">Add</button>
+                    </form>
+                </div> <!-- end of popUp -->
                 <button class="headerbutton">Upload</button>
                 <button class="headerbutton">Share</button>
             </div>

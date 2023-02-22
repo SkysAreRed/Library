@@ -1,8 +1,8 @@
-const newBookBtn = document.querySelector('#newBtn');
-newBookBtn.addEventListener('click', () => popUpForm.style.display = 'block');
-
 const addBtn = document.querySelector('#addBtn');
 addBtn.addEventListener('click', addBookToLibrary);
+
+const newBookBtn = document.querySelector('#newBtn');
+newBookBtn.addEventListener('click', () => popUpForm.style.display = 'block');
 
 const popUpForm = document.getElementById('popUp');
 const closePopUp = document.getElementByTagName('span')[0];
@@ -18,8 +18,7 @@ class Book { // book constructor
 }
 
 let myLibrary = [
-    title
-];
+    {title: "potato", author: "potato2", read: false}];
 let newBook;
 
 function addBookToLibrary() {
@@ -54,8 +53,8 @@ function createBook(item) {
     // these happen inside infoblockDiv
     const titleDiv = document.createElement('div')
     const authDiv = document.createElement('div')
-    const removeBtn = document.createElement('button')
-    const readBtn = document.createElement('button')
+    //const removeBtn = document.createElement('button')
+    //const readBtn = document.createElement('button')
 
     const userBookActionsDiv = document.createElement('div'); // this holds the dummy images
 
@@ -64,10 +63,12 @@ function createBook(item) {
 
 
     library.appendChild(aBookDiv); // appends aBookDiv to be the child of library
+    aBookDiv.appendChild(blockshadingDiv); // appends blockshadingDiv to be the child of aBookDiv
+    aBookDiv.appendChild(infoblockDiv);
+    aBookDiv.appendChild(userBookActionsDiv);
+
+    infoblockDiv.appendChild(titleDiv);
+    infoblockDiv.appendChild(authDiv);
 }
 
-createBook()
 render()
-
-
-//pick up from createBook and add divs to make sexy book cards
