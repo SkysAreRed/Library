@@ -9,13 +9,13 @@ const closePopUp = document.getElementByTagName('span')[0];
 closePopUp.addEventListener('click', () => popUpForm.style.display = 'none');
 
 
-class Book { // book constructor
-    constructor(title, author, read) {
-        this.title = form.title.value;
-        this.author = form.author.value;
-        this.read = form.read.checked;
-    }
-}
+// class Book { // book constructor
+//     constructor(title, author, read) {
+//         this.title = form.title.value;
+//         this.author = form.author.value;
+//         this.read = form.read.checked;
+//     }
+// }
 
 let myLibrary = [
     {title: "potato", author: "potato2", read: false}];
