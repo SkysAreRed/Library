@@ -46,28 +46,60 @@ function createBook(item) {
     const library = document.querySelector('#book-container');
     const aBookDiv = document.createElement('div');
 
+    // the three div blocks that make up the card
     const blockshadingDiv = document.createElement('div'); // this goes inside 
-    
     const infoblockDiv = document.createElement('div'); // along with this which contains the array information for each book
-
-    // these happen inside infoblockDiv
-    const titleDiv = document.createElement('div')
-    const authDiv = document.createElement('div')
-    const removeBtn = document.createElement('button')
-    const readBtn = document.createElement('button')
-
     const userBookActionsDiv = document.createElement('div'); // this holds the dummy images
 
+    // adding classes to each div
     aBookDiv.classList.add('aBook'); // add class name to new div
     aBookDiv.setAttribute('id', myLibrary.indexOf(item)); // give each book a number to organise array'
+    blockshadingDiv.classList.add('blockshading'); // shading on left side added
+    infoblockDiv.classList.add('infoblock');
+    userBookActionsDiv.classList.add('userBookActions'); // userBookActions class add
 
+
+    // these happen inside infoblockDiv
+    const titleDiv = document.createElement('h5');
+    titleDiv.classList.add('booktitle'); // adds class name for h5 header
+    titleDiv.textContent = item.title; // calls the name of the book
+    infoblockDiv.appendChild(titleDiv); // appends 
+
+    const authDiv = document.createElement('p');
+    authDiv.textContent = item.author;
+    infoblockDiv.appendChild(authDiv);
+
+    const readDiv = document.createElement('p');
+    readDiv.textContent = item.read;
+    infoblockDiv.appendChild(readDiv);
+
+    // creating the toggle label
+    const readToggleLabel = document.createElement('div');
+    readToggleLabel.classList.add('read-toggle-label');
+    readToggleLabel.textContent = 'Mark as read:';
+    userBookActionsDiv.appendChild(readToggleLabel);
+
+    // toggle itself
+    const readBtn = document.createElement('button');
+    const bookActionsImg = document.createElement('bookActionsImg');
+    // add image here to replace button
+
+    userBookActionsDiv.appendChild(readBtn);
+    readBtn.appendChild(bookActionsImg);
+
+    if(item.read === false) {
+        readDiv.textContent = 'Not Read';
+    } else {
+        readDiv.textContent = 'Read';
+    }
+
+    const removeBtn = document.createElement('button');
 
     library.appendChild(aBookDiv); // appends aBookDiv to be the child of library
     aBookDiv.appendChild(blockshadingDiv); // appends blockshadingDiv to be the child of aBookDiv
     aBookDiv.appendChild(infoblockDiv);
     aBookDiv.appendChild(userBookActionsDiv);
 
-    infoblockDiv.appendChild(titleDiv);
     infoblockDiv.appendChild(authDiv);
 
     removeBtn.addEventListener('click', () => {

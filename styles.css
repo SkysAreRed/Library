@@ -401,6 +401,19 @@ input[type=checkbox] {
   padding: 1rem;
 }
 
+.contentgrid .booksGrid .aBook .userBookActions .read-toggle-label { /* new content */
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.contentgrid .booksGrid .aBook .userBookActions .toggle-control {
+  display: block;
+  cursor: pointer;
+  font-size: 22px;
+  user-select: none;
+}
+
 .contentgrid .booksGrid .aBook .userBookActions .bookActionsImg {
   cursor: pointer;
   height: 2rem;
@@ -409,6 +422,12 @@ input[type=checkbox] {
 .contentgrid .booksGrid .aBook .userBookActions .bookActionsImg:active {
   -webkit-transform: scale(0.97);
           transform: scale(0.97);
+}
+
+.contentgrid .booksGrid .aBook .userBookActions .readBtn {
+  border: none;
+  background-color: inherit;
+  appearance: none;
 }
 
 .contentgrid .bonusinfo {
