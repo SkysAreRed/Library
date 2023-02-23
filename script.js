@@ -81,8 +81,10 @@ function createBook(item) {
 
     // toggle itself
     const readBtn = document.createElement('button');
-    const bookActionsImg = document.createElement('bookActionsImg');
-    // add image here to replace button
+    const bookActionsImg = document.createElementNS('svg');
+    bookActionsImg.src = '/Library/pics/book-open-page-variant-outline.svg';
+
+    // add SVG here to replace button
 
     userBookActionsDiv.appendChild(readBtn);
     readBtn.appendChild(bookActionsImg);
