@@ -81,13 +81,14 @@ function createBook(item) {
 
     // toggle itself
     const readBtn = document.createElement('button');
-    const bookActionsImg = document.createElementNS('svg');
+    const bookActionsImg = document.createElement('img');
     bookActionsImg.src = '/Library/pics/book-open-page-variant-outline.svg';
-
-    // add SVG here to replace button
-
-    userBookActionsDiv.appendChild(readBtn);
+    bookActionsImg.classList.add('bookActionsImg');
+    readBtn.classList.add('readBtn');
     readBtn.appendChild(bookActionsImg);
+    userBookActionsDiv.appendChild(readBtn);
+
+    
 
     if(item.read === false) {
         readDiv.textContent = 'Not Read';
