@@ -201,9 +201,9 @@ body {
 #form {
   background-color: #fefefe;
   margin: 15% auto; /* 15% from top and centered */
-  padding: 20%;
+  padding: 30px;
   border: 1px solid #888;
-  width: 20%; /* varies on screen size */
+  width: 200px; /* varies on screen size */
 }
 
 input#title {
