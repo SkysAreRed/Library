@@ -424,7 +424,8 @@ input[type=checkbox] {
           transform: scale(0.97);
 }
 
-.contentgrid .booksGrid .aBook .userBookActions .readBtn {
+.contentgrid .booksGrid .aBook .userBookActions .readBtn,
+.contentgrid .booksGrid .aBook .userBookActions .removeBtn {
   border: none;
   background-color: inherit;
   appearance: none;

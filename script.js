@@ -17,8 +17,7 @@ class Book { // book constructor
     }
 }
 
-let myLibrary = [
-    {title: "potato", author: "potato2", read: false}];
+let myLibrary = [];
 let newBook;
 
 function addBookToLibrary() {
@@ -28,17 +27,18 @@ function addBookToLibrary() {
     newBook = new Book(title, author, read);
     myLibrary.push(newBook); // pushes newBook into myLibrary array 
 
+    setData(); // saves in local computer as data array
     render(); // renders page to update book display 
     form.reset(); // clears previously entered data
 }
 
 function render() { // creates book visually in your browser
     const display = document.getElementById('book-container');
-    const books = document.querySelectorAll('.book');
-    books.forEach(book => display.removeChild(book)); 
+    const books = document.querySelectorAll('.aBook');
+    books.forEach(aBook => display.removeChild(aBook)); 
 
     for (let i=0; i < myLibrary.length; i++) { // loops through createBook function for each book card
-        createBook(myLibrary[i])
+        createBook(myLibrary[i]);
     }
 }
 
@@ -57,7 +57,6 @@ function createBook(item) {
     blockshadingDiv.classList.add('blockshading'); // shading on left side added
     infoblockDiv.classList.add('infoblock');
     userBookActionsDiv.classList.add('userBookActions'); // userBookActions class add
-
 
     // these happen inside infoblockDiv
     const titleDiv = document.createElement('h5');
@@ -80,7 +79,7 @@ function createBook(item) {
     userBookActionsDiv.appendChild(readToggleLabel);
 
     // toggle itself
-    const readBtn = document.createElement('button');
+    const readBtn = document.createElement('button'); // read btn
     const bookActionsImg = document.createElement('img');
     bookActionsImg.src = '/Library/pics/book-open-page-variant-outline.svg';
     bookActionsImg.classList.add('bookActionsImg');
@@ -88,15 +87,20 @@ function createBook(item) {
     readBtn.appendChild(bookActionsImg);
     userBookActionsDiv.appendChild(readBtn);
 
-    
+    // delete button
+    const removeBtn = document.createElement('button'); // remove btn
+    const removeActionsImg = document.createElement('img');
+    removeActionsImg.src = '/Library/pics/trash-can-outline.svg';
+    removeActionsImg.classList.add('bookActionsImg');
+    removeBtn.classList.add('removeBtn');
+    removeBtn.appendChild(removeActionsImg);
+    userBookActionsDiv.appendChild(removeBtn);
 
     if(item.read === false) {
         readDiv.textContent = 'Not Read';
     } else {
         readDiv.textContent = 'Read';
     }
-
-    const removeBtn = document.createElement('button');
 
     library.appendChild(aBookDiv); // appends aBookDiv to be the child of library
     aBookDiv.appendChild(blockshadingDiv); // appends blockshadingDiv to be the child of aBookDiv
@@ -107,13 +111,32 @@ function createBook(item) {
 
     removeBtn.addEventListener('click', () => {
         myLibrary.splice(myLibrary.indexOf(item), 1);
+        setData();
         render();
     })
 
     readBtn.addEventListener('click', () => {
         item.read = !item.read;
+        setData();
         render();
     })
 }
 
-render()
+// stores library in local storage
+function setData() {
+    localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+}
+
+// when page is refreshed, this pulls books from local storage
+function restore() {
+    if(!localStorage.myLibrary) {
+        render();
+    } else {
+        let objects = localStorage.getItem('myLibrary');
+        objects = JSON.parse(objects);
+        myLibrary = objects;
+        render();
+    }
+}
+
+restore();
